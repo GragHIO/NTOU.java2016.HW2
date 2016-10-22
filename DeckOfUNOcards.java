@@ -19,13 +19,13 @@ public class DeckOfUNOcards
 			switch(i % 12)
 			{
 				case 10:
-					deck[i] = new UNOcard(UNOcard.INVALID, UNOType.type.SKIP, ColorType.colorSuit[i / 12]);
+					deck[i] = new UNOcard(UNOcard.INVALID, UNOType.type.SKIP, ColorType.colorSuit.getValue(i/12));
 					break;
 				case 11:
-					deck[i] = new UNOcard(UNOcard.INVALID, UNOType.type.DRAW2, ColorType.colorSuit[i / 12]);
+					deck[i] = new UNOcard(UNOcard.INVALID, UNOType.type.DRAW2, ColorType.colorSuit.getValue(i/12));
 					break;
 				default:
-					deck[i] = new UNOcard(i % 12, UNOType.type.NUMBER, ColorType.colorSuit[i / 12]);
+					deck[i] = new UNOcard(i % 12, UNOType.type.NUMBER, ColorType.colorSuit.getValue(i/12));
 			}
 		}
 	}//end of DeckOfUNOcards ctor
@@ -34,7 +34,7 @@ public class DeckOfUNOcards
 	{
 		currentCard = 0;
 		
-		for(int first = 0 ; first < deck.length ; ++first)
+		for(int first = 0 ; first < deck.length ; first++)
 		{
 			int second = randomNumbers.nextInt(NUMBER_OF_CARDS);
 			

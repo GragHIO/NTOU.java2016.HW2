@@ -10,19 +10,21 @@ public class UNOcard
 	//enum colorSuit{BLUE, GREEN, RED, YELLOW};
 	
 	private int number;
-	private UNOType cardType = new UNOType();
-	private ColorType cardColor = new ColorType();
+	//private UNOType cardType = new UNOType();
+	private UNOType.type ccardType;
+	//private ColorType cardColor = new ColorType();
+	private ColorType.colorSuit ccardColor;
 	
-	public UNOcard(int initNumber, UNOType initType, ColorType initColor)
+	public UNOcard(int initNumber, UNOType.type initType, ColorType.colorSuit initColor)
 	{
 		number = initNumber;
-		cardType.type = initType.type;
-		cardColor.colorSuit = initColor.colorSuit;
+		ccardType = initType;
+		ccardColor = initColor;
 	}
 	
 	public String toString()
 	{
-		if(cardType.type == UNOType.type.NUMBER) return String.format("%s", cardColor.colorSuit) + " " + number;
-		return String.format("%s", cardColor.colorSuit) + " " + String.format("%s", cardType.type);
+		if(ccardType == UNOType.type.NUMBER) return String.format("%s", ccardColor) + " " + number;
+		return String.format("%s", ccardColor) + " " + String.format("%s", ccardType);
 	}
 }
